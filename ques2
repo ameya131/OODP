@@ -1,0 +1,25 @@
+#include <iostream>
+int main()
+{
+    int count[5] = {0};
+    int spoiltBallots = 0;
+    int vote;
+    while (true) 
+    {
+        std::cout << "Enter your vote ";
+        std::cin >> vote;
+        if (vote == 0) 
+        break;
+        if (vote >= 1 && vote <= 5)
+            count[vote - 1]++;
+        else
+            spoiltBallots++;
+    }
+    std::cout << "Final Vote Count:\n";
+    for (int i = 0; i < 5; i++)
+        std::cout << "Candidate " << (i + 1) << ": " << count[i] << " votes\n";
+
+    std::cout << "Spoilt Ballots: " << spoiltBallots << std::endl;
+
+    return 0;
+}
