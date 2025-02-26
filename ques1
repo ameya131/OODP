@@ -1,0 +1,26 @@
+#include <iostream>
+class customer
+{
+public:
+    static double totalAmount;
+    static constexpr double rate = 0.05;
+
+    static void purchase(double price, int quantity) {
+        double total = price * quantity;
+        total += total * rate;
+        totalAmount += total;
+        std::cout << "Total Bill (including tax): " << static_cast<int>(total) << std::endl;
+    }
+};
+double customer::totalAmount = 0.0;
+int main() 
+{
+    double price;
+    int quantity;
+    std::cout << "Enter item price: ";
+    std::cin >> price;
+    std::cout << "Enter quantity: ";
+    std::cin >> quantity;
+    customer::purchase(price, quantity);
+    return 0;
+}
